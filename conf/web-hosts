@@ -1,0 +1,5 @@
+check Host Test-Website with address www.test.de
+    if failed port 443 protocol https with timeout 30 seconds then alert
+
+check host Test-Website2 with address www.test.de
+    if failed port 443 protocol https with timeout 10 seconds for 3 cycles then alert

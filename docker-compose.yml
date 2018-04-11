@@ -1,0 +1,13 @@
+version: '2'
+services:
+  monit:
+    image: Hendrik44/alpine-monit:5.25.1
+    hostname: monit
+    ports:
+      - "127.0.0.1:2812:2812"
+    environment:
+      - MONIT_PORT=2812
+    volumes:
+      - ./conf:/opt/monit/etc/conf.d:ro
+    restart: always
+    

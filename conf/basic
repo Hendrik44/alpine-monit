@@ -1,0 +1,29 @@
+set daemon 60
+set logfile /opt/monit/log/monit.log
+set pidfile /opt/monit/log/monit.pid
+set statefile /opt/monit/log/monit.state
+
+set httpd port 2812 
+    allow 127.0.0.1
+#    allow root:password # use it to access from everywhere via basic auth
+
+#set mailserver localhost
+set alert mail@domain.de not {instance}
+
+set mailserver mail.imap-test.com
+  port 587
+  username "test@domain.de"
+  password "password"
+  with timeout 60 seconds
+
+
+set mail-format {
+    From: test@domain.de
+#    subject: [Monit] $HOST - $SERVICE - $ACTION - $EVENT
+    Subject: [$HOST] $EVENT $SERVICE
+    message: $EVENT Service $SERVICE
+                 Date:        $DATE
+                 Action:      $ACTION
+                 Host:        $HOST
+                 Description: $DESCRIPTION
+}
