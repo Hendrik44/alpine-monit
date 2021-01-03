@@ -1,8 +1,8 @@
-FROM alpine:3.8
+FROM alpine:3.12
 MAINTAINER Hendrik Juerst <Hendrik44@users.noreply.github.com>
 
 # Compile and install monit and confd
-ENV MONIT_VERSION=5.25.2     MONIT_HOME=/opt/monit     MONIT_URL=https://mmonit.com/monit/dist     SERVICE_VOLUME=/opt/tools     PATH=$PATH:/opt/monit/bin
+ENV MONIT_VERSION=5.27.1     MONIT_HOME=/opt/monit     MONIT_URL=https://mmonit.com/monit/dist     SERVICE_VOLUME=/opt/tools     PATH=$PATH:/opt/monit/bin
 
 # Compile and install monit
 RUN apk upgrade --update \
