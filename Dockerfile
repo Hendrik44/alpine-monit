@@ -8,7 +8,6 @@ ENV MONIT_VERSION=5.27.1     MONIT_HOME=/opt/monit     MONIT_URL=https://mmonit.
 RUN apk upgrade --update \
 	&& apk add --no-cache bash libressl curl fping libcap gcc musl-dev make libressl-dev file zlib-dev \
 	&& rm -rf /var/cache/apk/* \
-	&& mkdir /opt \
 	&& mkdir -p /opt/src; cd /opt/src \
 	&& curl -sS ${MONIT_URL}/monit-${MONIT_VERSION}.tar.gz | gunzip -c - | tar -xf - \
 	&& cd /opt/src/monit-${MONIT_VERSION} \
